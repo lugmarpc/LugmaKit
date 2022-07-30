@@ -8,6 +8,13 @@ public protocol Stream {
     func send<T: Encodable>(signal: String, item: T) async throws
 }
 
+public struct Nothing: Codable, Error {
+    public init(from decoder: Decoder) throws {
+    }
+    public func encode(to encoder: Encoder) throws {
+    }
+}
+
 public protocol Transport {
     associatedtype Extra
 
